@@ -92,7 +92,15 @@ public class BallPane extends Pane {
 			if (y[i] < radius || y[i] > getHeight() - radius) {
 				dy[i] *= -1; // Change ball move direction
 			}
-
+			//Let ball can bounce each other
+			for(int k = 0; k < 7; k++){
+				if(i == k){
+				}
+				else if(((x[i]-x[k]) * (x[i]-x[k]) + (y[i]-y[k]) * (y[i]-y[k])) <= 197.0) {
+					dx[i] *= -1;
+					dy[k] *= -1;
+				}
+			}
 			// Adjust ball position
 			x[i] += dx[i];
 			y[i] += dy[i];
