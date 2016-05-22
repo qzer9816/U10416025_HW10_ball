@@ -41,7 +41,14 @@ public class BallPane extends Pane {
 
 	//Constructor
 	public BallPane() {
-		getChildren().add(circle[i]);
+		//SecureRandom
+		SecureRandom random = new SecureRandom();
+		//add balls in pane
+		for(int i = 0; i < 7; i++){
+			getChildren().add(circle[i]);
+			//Set ball color
+			circle[i].setFill(new Color(random.nextDouble(), random.nextDouble(), random.nextDouble(), 1.0));
+		}
 
 		// Create an animation for moving the ball
 		animation = new Timeline(
